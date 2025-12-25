@@ -1,0 +1,39 @@
+# My Security Tools Integration - Version 1.0
+# [span_0](start_span)Developed by Aiman Mansor Khadem[span_0](end_span)
+# This script connects my first two projects together.
+
+[span_1](start_span)import SentinelPass  # My Password Tool[span_1](end_span)
+[span_2](start_span)import NetAudit      # My Network Tool[span_2](end_span)
+
+def start_program():
+    print("-------------------------------------------")
+    print("   WELCOME TO MY SECURITY DASHBOARD")
+    [span_3](start_span)[span_4](start_span)print("   Learning Progress: 45 Days[span_3](end_span)[span_4](end_span)")
+    print("-------------------------------------------")
+    print("Please choose an option:")
+    print("1. Check Password Strength (SentinelPass)")
+    print("2. Scan Network Ports (NetAudit-Lite)")
+    print("3. Exit")
+    
+    choice = input("\nEnter choice (1, 2, or 3): ")
+
+    if choice == '1':
+        print("\n--- Running SentinelPass ---")
+        user_pass = input("Enter a password to test: ")
+        # [span_5](start_span)Calling the function from my previous project[span_5](end_span)
+        SentinelPass.check_password_strength(user_pass)
+        
+    elif choice == '2':
+        print("\n--- Running NetAudit-Lite ---")
+        target_ip = input("Enter IP address to scan (e.g., 127.0.0.1): ")
+        # [span_6](start_span)Scanning common ports like 80, 443, and 22[span_6](end_span)
+        ports_to_scan = [21, 22, 80, 443, 8080]
+        NetAudit.scan_target(target_ip, ports_to_scan)
+        
+    elif choice == '3':
+        print("Closing the program... Goodbye!")
+    else:
+        print("Error: Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    start_program()
